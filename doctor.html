@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Doctor Profile</h1>
+
+        <!-- Logout Button -->
+        <button id="logoutButton">Logout</button>
+
+        <!-- Doctor Information Section -->
+        <section id="doctor-info" class="section active">
+            <h2>Doctor Information</h2>
+            <p><strong>Name:</strong> <span id="doctor-name"></span></p>
+            <p><strong>Specialization:</strong> <span id="doctor-specialization"></span></p>
+            <p><strong>Contact:</strong> <span id="doctor-contact"></span></p>
+        </section>
+
+        <!-- Toggle buttons to expand/collapse other sections -->
+        <button class="toggle-button" data-section="patients-section">Patients</button>
+        <section id="patients-section" class="section">
+            <h2>Patients</h2>
+            <table id="patients-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Contact</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <button class="toggle-button" data-section="appointments-section">Appointments</button>
+        <section id="appointments-section" class="section">
+            <h2>Appointments</h2>
+            <table id="appointments-table">
+                <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <button class="toggle-button" data-section="medical-records-section">Medical Records</button>
+        <section id="medical-records-section" class="section">
+            <h2>Medical Records</h2>
+            <input type="number" id="patient-id-input" placeholder="Enter Patient ID">
+            <button onclick="fetchMedicalRecords()">View Records</button>
+            <table id="medical-records-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Diagnosis</th>
+                        <th>Treatment</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="../frontend/doctor.js"></script>
+</body>
+</html>

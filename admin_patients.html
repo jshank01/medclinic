@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - Manage Patients</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="js/patientActions.js" defer></script> <!-- Separate JavaScript file for actions -->
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="admin.html">Admin Dashboard</a>
+        <a href="admin_Doctors.html">Doctors</a>
+        <a href="doctorSchedule.html">Doctor Schedule</a>
+        <a href="admin_patients.html">Patients</a>
+        <a href="admin_appointments.html">Appointments</a>
+        <a href="employees.html">Employees</a>
+        <a href="../index.html">Logout</a>
+    </div>
+    <!-- Main Content for Patients Management -->
+    <div class="main-content">
+        <!-- Title -->
+        <h2>Manage Patients</h2>
+        <!-- Patients Table -->
+        <table id="doctors-table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Account Creation Date</th>
+                    <th>Medical History</th>
+                    <th>Appointments</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example row - dynamic population will replace these hardcoded rows -->
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>2023-05-15</td>
+                    <td>
+                        <button onclick="window.location.href='medicalHistory.html?patientId=1'" class="history-btn">View History</button>
+                    </td>
+                    <td>
+                        <button onclick="window.location.href='appointmentsHistory.html?patientId=1'" class="appointments-btn">View Appointments</button>
+                    </td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
+                <!-- Additional rows can be added here -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

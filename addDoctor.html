@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - Add Doctor</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="frontend/addDoctor.js" defer></script> <!-- Correct path to JavaScript -->
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="admin.html">Admin Dashboard</a>
+        <a href="admin_Doctors.html">Doctors</a>
+        <a href="doctorSchedule.html">Doctor Schedule</a>
+        <a href="admin_patients.html">Patients</a>
+        <a href="admin_appointments.html">Appointments</a>
+        <a href="employees.html">Employees</a>
+        <a href="../index.html">Logout</a>
+    </div>
+
+    <!-- Main Content for Add Doctor Form -->
+    <div class="main-content">
+        <form id="addDoctorForm">
+            <h2>Doctor Information</h2>
+
+            <!-- First Name -->
+            <div class="form">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first_name" required>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form">
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last_name" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form">
+                <label for="phone-number">Phone Number:</label>
+                <input type="tel" id="phone-number" name="phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            </div>
+
+            <!-- SSN -->
+            <div class="form">
+                <label for="ssn">SSN:</label>
+                <input type="text" id="ssn" name="ssn" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" required>
+            </div>
+
+            <!-- Specialty -->
+            <div class="form">
+                <label for="specialty">Specialty:</label>
+                <select id="specialty" name="specialty" required>
+                    <option value="">Please Select</option>
+                    <option value="Cardiologist">Cardiologist</option>
+                    <option value="Dermatologist">Dermatologist</option>
+                    <option value="Pediatrician">Pediatrician</option>
+                </select>
+            </div>
+
+            <!-- Office ID -->
+            <div class="form">
+                <label for="office-id">Office ID:</label>
+                <input type="text" id="office-id" name="office_id" required>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

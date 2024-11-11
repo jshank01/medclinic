@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Schedule</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="admin.html">Admin Dashboard</a>
+        <a href="admin_Doctors.html">Doctors</a>
+        <a href="doctorSchedule.html">Doctor Schedule</a>
+        <a href="admin_patients.html">Patients</a>
+        <a href="admin_appointments.html">Appointments</a>
+        <a href="employees.html">Employees</a>
+        <a href="../index.html">Logout</a>
+    </div>
+
+    <div class="schedule-container">
+        <div class="header">
+            <h2>Doctor Schedule</h2>
+            <div class="controls">
+                <select id="doctor-select">
+                    <option value="">Select Doctor</option>
+                    <option value="doctor1">Doctor 1</option>
+                    <option value="doctor2">Doctor 2</option>
+                    <!-- Add more doctor options here -->
+                </select>
+                <input type="date" id="appointment-date">
+                <button onclick="fetchAppointments()">View Schedule</button>
+            </div>
+        </div>
+
+        <!-- Appointment Table -->
+        <div class="doctors-table">
+            <h3 id="schedule-title">Schedule for Doctor: [Selected Doctor]</h3>
+            <table id="doctors-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Patient Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="appointment-rows">
+                    <!-- Appointment rows will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/schedule.js"></script>
+</body>
+</html>
