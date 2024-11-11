@@ -22,11 +22,13 @@
         <div class="header">
             <h2>Doctor Schedule</h2>
             <div class="controls">
+                <!-- Doctor dropdown and Date picker -->
                 <select id="doctor-select">
                     <option value="">Select Doctor</option>
+                    <!-- Add options dynamically or hardcode here -->
                     <option value="doctor1">Doctor 1</option>
                     <option value="doctor2">Doctor 2</option>
-                    <!-- Add more doctor options here -->
+                    <!-- More doctor options can be added -->
                 </select>
                 <input type="date" id="appointment-date">
                 <button onclick="fetchAppointments()">View Schedule</button>
@@ -41,6 +43,7 @@
                     <tr>
                         <th>Time</th>
                         <th>Patient Name</th>
+                        <th>Reason for Visit</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -50,6 +53,42 @@
             </table>
         </div>
     </div>
+
+    <script>
+        // JavaScript to fetch appointments and update the table
+        function fetchAppointments() {
+            const doctorId = document.getElementById('doctor-select').value;
+            const appDate = document.getElementById('appointment-date').value;
+
+            if (!doctorId || !appDate) {
+                alert('Please select a doctor and a date.');
+                return;
+            }
+
+            // Fetch data from the backend (Node.js endpoint)
+            fetch(`/getAppointments?doctorId=${doctorId}&appDate=${appDate}`)
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById('appointment-rows');
+                    tableBody.innerHTML = ''; // Clear previous data
+
+                    // Update the schedule title
+                    document.getElementById('schedule-title').textContent = `Schedule for Doctor: ${doctorId}`;
+
+                    // Populate the table with fetched appointment data
+                    data.forEach(appointment => {
+                        const row = tableBody.insertRow();
+                        row.insertCell(0).textContent = appointment.app_start_time;
+                        row.insertCell(1).textContent = `${appointment.patient_first_name} ${appointment.patient_last_name}`;
+                        row.insertCell(2).textContent = appointment.reason_for_visit;
+                        row.insertCell(3).textContent = 'Scheduled'; // You can add more status options here
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching appointments:', error);
+                });
+        }
+    </script>
 
     <script src="js/schedule.js"></script>
 </body>
